@@ -1,8 +1,8 @@
 // https://w3collective.com/react-contact-form/
 // https://www.crazydomains.sg/help/article/550-blocked-error-explained
 // https://resend.com/docs/send-with-nodemailer-smtp
-
-
+// https://render.com/docs/deploy-node-express-app
+// http://cron-job.org/
 
 const express = require("express");
 const router = express.Router();
