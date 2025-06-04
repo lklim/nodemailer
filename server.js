@@ -25,7 +25,7 @@ SMTP_SERVICE="yahoo";
     secure: true,
     auth: {
       user: 'resend',
-      pass:'re_LB79ju62_MLFvEWALLT1drr5bVJ6tmdr2',
+      pass:'xxxxx',
     },
     debug: false,
     logger: true
