@@ -27,7 +27,7 @@ SMTP_PORT=465;
     secure: true,
     auth: {
       user: 'resend',
-      pass:'re_LB79ju62_MLFvEWALLT1drr5bVJ6tmdr2',
+      pass:'xxxx',
     },
     debug: false,
     logger: true
