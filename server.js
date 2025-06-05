@@ -15,9 +15,11 @@ app.use(express.json());
 app.use("/", router);
 app.listen(5000, () => console.log("Server Running"));
 
+/*
 SMTP_HOST="smtp.mail.yahoo.com";
-SMTP_PORT=465;
 SMTP_SERVICE="yahoo";
+*/
+SMTP_PORT=465;
 
   const contactEmail = nodemailer.createTransport({
     host: 'smtp.resend.com',
@@ -25,7 +27,7 @@ SMTP_SERVICE="yahoo";
     secure: true,
     auth: {
       user: 'resend',
-      pass:'xxxxx',
+      pass:'re_LB79ju62_MLFvEWALLT1drr5bVJ6tmdr2',
     },
     debug: false,
     logger: true
@@ -47,6 +49,27 @@ SMTP_SERVICE="yahoo";
       from: "johnlim@advancedtechsys.co",
       to: "enquiry@advancedtechsys.co",
       subject: `"Contact Form Submission for " ${name}`,
+      html: `<p>Name: ${name}</p>
+             <p>Email: ${email}</p>
+             <p>Message: ${message}</p>`,
+    };
+    contactEmail.sendMail(mail, (error) => {
+      if (error) {
+        res.json({ status: error.message });
+      } else {
+        res.json({ status: "Message Sent" });
+      }
+    });
+  });
+
+  router.post("/demo", (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const message = req.body.message; 
+    const mail = {
+      from: "johnlim@advancedtechsys.co",
+      to: "enquiry@advancedtechsys.co",
+      subject: `"Demo Request Form Submission for " ${name}`,
       html: `<p>Name: ${name}</p>
              <p>Email: ${email}</p>
              <p>Message: ${message}</p>`,
